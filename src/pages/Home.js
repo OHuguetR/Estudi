@@ -6,6 +6,7 @@ function Home() {
   const [loadedMeetups, setLoadedMeetups] = useState([]);
 
   useEffect(() => {
+    // TODO: Què passa si s'elimina aquesta línia?
     setIsLoading(true);
     fetch(
       "https://react-getting-started-eddf0-default-rtdb.europe-west1.firebasedatabase.app/.json"
@@ -14,19 +15,29 @@ function Home() {
         return response.json();
       })
       .then((data) => {
+        debugger;
+        // Creem una array buida, on guardarem les dades formatejades.
         const meetups = [];
+
+        // Exemple de data
+        // {"propietat1": {}, "propietat2": {"meta": fuasdf}}
         for (const key in data) {
           const meetup = {
             id: key,
+            // ... = spread, "copiar i enganxar" totes les propietats de l'objecte. 
             ...data[key],
           };
+          // Al final de l'array, col·loca aquest nou meetup
           meetups.push(meetup);
+          // [{}, {}, {}]
         }
         setIsLoading(false);
         setLoadedMeetups(meetups);
       });
   }, []);
 
+  // isLoading i isLoading === true és el mateix
+  // !isLoading i isLoading === false || isLoading === undefined és el mateix
   if (isLoading) {
     return (
       <section>
@@ -34,6 +45,7 @@ function Home() {
       </section>
     );
   }
+
   return (
     <section>
       <h1>Pàgina Principal</h1>
