@@ -36,7 +36,7 @@ function Home() {
   }
   return (
     <section>
-      <h1> Pàgina Principal </h1>
+      <h1>Pàgina Principal</h1>
       <MeetUpList meetups={loadedMeetups} />
     </section>
   );

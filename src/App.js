@@ -10,11 +10,11 @@ import Layout from "./components/layout/Layout";
 function App() {
   return (
     <Layout>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path='/NewMeetup' element={<NewMeetupPage />} />
-          <Route exact path='/Favourites' element={<FavouritesPage />} />
-        </Routes>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path='/NewMeetup' element={<NewMeetupPage />} />
+        <Route exact path='/Favourites' element={<FavouritesPage />} />
+      </Routes>
     </Layout>
   );
 }
